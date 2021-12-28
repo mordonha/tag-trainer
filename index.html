@@ -2586,6 +2586,21 @@
     }, Math.random() * 12000 + 5000);
     
   </script>
+  <script>
+    // scipt/api para rolagem de página até o final
+    window.addEventListener('scroll',e => {
+      if(window.innerHeight + window.pageYOffset >= document.body.offsetHeight){
+        tracker.send('event', {
+          'category':'pageView-scroll',
+          'action':'page scroll',
+          'label':'Leu a Página',
+          'value': 0.011 
+        })
+      }
+    });
+  </script>
+
+
 
 </body>
 
