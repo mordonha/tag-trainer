@@ -2589,7 +2589,7 @@
   <script>
     // scipt/api para rolagem de página até o final
     window.addEventListener('scroll',e => {
-      if(window.innerHeight + window.pageYOffset >= document.body.offsetHeight){
+      if((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight){
         tracker.send('event', {
           'category':'pageView-scroll',
           'action':'page scroll',
