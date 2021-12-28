@@ -2598,6 +2598,15 @@
         })
       }
     });
+
+  document.querySelector('#contact form').addEventListener('mouseover', e =>{
+    tracker.send('event',{
+      'category':'view-element',
+      'action':'Viu Formulário',
+      'label':'Quer Falar Conosco'
+    });
+
+});
   </script>
 
 
