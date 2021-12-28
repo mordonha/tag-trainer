@@ -932,19 +932,20 @@
 </head>
 
 <body id="page-top" class="index">
-/* Instalação de script para automatização de preenchimento de planilha para acompanhamento */
 
-  <script>(function(tn, tc, cn, sn) {
-    window[tn] = window[tn] || {
+
+  <script>(function(tn, tc, cn, sn) {  //chamada de função IIFE - escopo e variaveis protegidas do escopo global e execução imediata
+
+    window[tn] = window[tn] || { //vetor declarado com valor parametrizado ou cria um objeto
       status: "loading_code",
       code: tc,
       cookieName: cn,
       queue: [],
-      send: function(a, d){
+      send: function(a, d){ // método recebe dois parametros; um deles é objeto, outro não
         d = d || {};
-        window[tn].queue.push({
+        window[tn].queue.push({ // função send realiza um push na fila do vetor window
           a: a,
-          d: Object.assign(d, {timestamp: Date.now()})
+          d: Object.assign(d, {timestamp: Date.now()}) // cópia do timestamp da invocação
         });
       }
     };
@@ -956,14 +957,16 @@
       s.src = "https://script.google.com/macros/s/" + tc + "/dev/library?tn=" + tn +"&sn=" + sn;
       document.body.appendChild(s);
     }
-   })("tracker", "AKfycbzeYzAAMhfoaRoDZoZF4MRgBYYAvs-r3RH59ViRJ0oLoUk2yxSdndtIUQwNtR7szZnB", "_trackerCk", 'marcosordonha');
+   })("tracker", "AKfycbzeYzAAMhfoaRoDZoZF4MRgBYYAvs-r3RH59ViRJ0oLoUk2yxSdndtIUQwNtR7szZnB", "_trackerCk", 'marcosordonha'); // parametro de invocação para essa IIFE assim que criada
 
    /* https://script.google.com/a/macros/raccoon.ag/s/AKfycbzeYzAAMhfoaRoDZoZF4MRgBYYAvs-r3RH59ViRJ0oLoUk2yxSdndtIUQwNtR7szZnB/exec */
     
    window["tracker"].send("pageview", {
      cd1: 'source code'
     });
-  
+
+  </script>
+
   <img src="https://tag-trainer.raccoon.ag/static/shared/balloon.svg" id="call-me-baby" />
   <!-- Navigation -->
   <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
