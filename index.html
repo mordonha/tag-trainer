@@ -2625,7 +2625,7 @@
     // email input forms event
     document.getElementById('email').addEventListener('input', handlerMyFormsEmail);
     function handlerMyFormsEmail(e){
-      e.target.remeveEventListener(e.type, arguments.callee);
+      e.target.removeEventListener(e.type, arguments.callee);
       tracker.send('event', {
         'category': 'form-input',
         'action': 'Forms Input',
