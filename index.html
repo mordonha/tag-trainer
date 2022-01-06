@@ -2586,8 +2586,11 @@
     }, Math.random() * 12000 + 5000);
     
   </script>
+  
   <script>
-    // scipt/api para rolagem de página até o final
+  /* Tag Trainer - scripts to tracker events to a analytics plataform */
+
+    // end page scroll event
     window.addEventListener('scroll',e => {
       if(window.innerHeight + window.pageYOffset >= document.body.offsetHeight){
         tracker.send('event', {
@@ -2598,15 +2601,59 @@
         })
       }
     });
-    // script para visualização de formulário
-  document.querySelector('#contact form').addEventListener('click', e =>{
-    tracker.send('event',{
-      'category':'view-element',
-      'action':'Viu Formulário',
-      'label':'Quer Falar Conosco'
-    });
+    // forms view event
+    document.querySelector('#contact form').addEventListener('mouseover', handlerMyFormsView); 
+    function handlerMyFormsView(e){
+      e.target.removeEventListener(e.type, arguments.callee);
+      tracker.send('event',{
+        'category':'view-element',
+        'action':'Viu Formulário',
+        'label':'Quer Falar Conosco'
+      });
 
-});
+    });
+    // name input forms event
+    document.getElementById('name').addEventListener('input', handlerMyFormsName);
+    function handlerMyFormsName(e){
+        e.target.removeEventListener(e.type, arguments.callee);
+        tracker.send('event', {
+            'category': 'form-input',
+            'action':'Forms Input',
+            'label': 'Input - Name'
+        });
+    }
+    // email input forms event
+    document.getElementById('email').addEventListener('input', handlerMyFormsEmail);
+    function handlerMyFormsEmail(e){
+      e.target.remeveEventListener(e.type, arguments.callee);
+      tracker.send('event', {
+        'category': 'form-input',
+        'action': 'Forms Input',
+        'label': 'Input - Email'
+      });
+    }
+    // phone input forms event
+    document.getElementById('phone').addEventListener('input', handlerMyFormsPhone);
+    function handlerMyFormsPhone(e){
+      e.target.removeEventListener(e.type, arguments.callee);
+      tracker.send('event', {
+        'category': 'form-input',
+        'action':'Forms Input',
+        'label': 'Input - Phone'
+      });
+    }
+    // message input forms event
+    document.getElementById('message').addEventlistner('input', handlerMyFormsMessage);
+    function handlerMyFormsMessage(e){
+      e.target.removeEventListener(e.type, arguments.callee);
+      tracker.send('event', {
+        'category': 'form-input',
+        'action': 'Forms Input',
+        'label': 'Input - Message'
+      })
+    }
+
+
   </script>
 
 
