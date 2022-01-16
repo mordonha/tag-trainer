@@ -2602,7 +2602,7 @@
       }
     });
     // forms view event
-    document.querySelector('#contact form').addEventListener('mouseover', handlerMyFormsView); 
+    document.querySelector('#contact form').addEventListener('click', handlerMyFormsView); 
     function handlerMyFormsView(e){
       e.target.removeEventListener(e.type, arguments.callee);
       tracker.send('event',{
