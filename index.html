@@ -2600,9 +2600,9 @@
           'value': 0.011 
         })
       }
-    });
+    }, false);
     // forms view event
-    document.querySelector('#contact form').addEventListener('click', handlerMyFormsView); 
+    document.querySelector('#contact form').addEventListener('click', handlerMyFormsView, false); 
     function handlerMyFormsView(e){
       e.target.removeEventListener(e.type, arguments.callee);
       tracker.send('event',{
@@ -2613,7 +2613,7 @@
 
     }
     // name input forms event
-    document.getElementById('name').addEventListener('input', handlerMyFormsName);
+    document.getElementById('name').addEventListener('input', handlerMyFormsName, false);
     function handlerMyFormsName(e){
         e.target.removeEventListener(e.type, arguments.callee);
         tracker.send('event', {
@@ -2623,7 +2623,7 @@
         });
     }
     // email input forms event
-    document.getElementById('email').addEventListener('input', handlerMyFormsEmail);
+    document.getElementById('email').addEventListener('input', handlerMyFormsEmail, false);
     function handlerMyFormsEmail(e){
       e.target.removeEventListener(e.type, arguments.callee);
       tracker.send('event', {
@@ -2633,7 +2633,7 @@
       });
     }
     // phone input forms event
-    document.getElementById('phone').addEventListener('input', handlerMyFormsPhone);
+    document.getElementById('phone').addEventListener('input', handlerMyFormsPhone, false);
     function handlerMyFormsPhone(e){
       e.target.removeEventListener(e.type, arguments.callee);
       tracker.send('event', {
@@ -2643,7 +2643,7 @@
       });
     }
     // message input forms event
-    document.getElementById('message').addEventlistner('input', handlerMyFormsMessage);
+    document.getElementById('message').addEventlistner('input', handlerMyFormsMessage, false);
     function handlerMyFormsMessage(e){
       e.target.removeEventListener(e.type, arguments.callee);
       tracker.send('event', {
@@ -2654,7 +2654,7 @@
     }
 
     // form submit forms event
-    document.querySelector('#contactForm button').addEventListener('click', handlerMySubmit);
+    document.querySelector('#contactForm button').addEventListener('click', handlerMySubmit, false);
     function handlerMySubmit(e){
       tracker.send('event', {
         'category': 'forms - event',
