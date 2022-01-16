@@ -2653,6 +2653,17 @@
       })
     }
 
+    // form submit forms event
+    document.querySelector('#contactForm button').addEventListener('click', handlerMySubmit);
+    function handlerMySubmit(e){
+      tracker.send('event', {
+        'category': 'forms - event',
+        'action': 'Form Submit',
+        'label': 'Envio de mensagem para contato',
+        'value': '23.99'
+      });
+    }
+
   </script>
 
 
